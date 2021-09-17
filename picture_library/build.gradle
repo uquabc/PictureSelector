@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply from: "../config.gradle"
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.uquabc'
 
 android {
     compileSdkVersion cfgs.compileSdkVersion
@@ -31,7 +33,7 @@ android {
     resourcePrefix 'ucrop_'
 }
 
-apply from: '../publish.gradle'
+//apply from: '../publish.gradle'
 
 dependencies {
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
