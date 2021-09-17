@@ -14,14 +14,12 @@ import com.luck.picture.lib.tools.AttrsUtils;
 import com.luck.picture.lib.tools.DateUtils;
 import com.luck.picture.lib.tools.DoubleUtils;
 import com.luck.picture.lib.tools.PictureFileUtils;
-import com.luck.picture.lib.tools.SdkVersionUtils;
 import com.luck.picture.lib.tools.StringUtils;
 import com.luck.picture.lib.tools.ToastUtils;
-import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop1.ucrop.UCrop;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author：luck

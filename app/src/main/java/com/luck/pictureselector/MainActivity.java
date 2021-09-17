@@ -72,7 +72,7 @@ import com.luck.picture.lib.tools.ToastUtils;
 import com.luck.picture.lib.tools.ValueOf;
 import com.luck.pictureselector.adapter.GridImageAdapter;
 import com.luck.pictureselector.listener.DragListener;
-import com.yalantis.ucrop.view.OverlayView;
+import com.yalantis.ucrop1.ucrop.view.OverlayView;
 
 import org.jetbrains.annotations.NotNull;
 

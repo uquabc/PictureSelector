@@ -34,8 +34,8 @@ import com.luck.picture.lib.style.PictureSelectorUIStyle;
 import com.luck.picture.lib.style.PictureWindowAnimationStyle;
 import com.luck.picture.lib.tools.DoubleUtils;
 import com.luck.picture.lib.tools.SdkVersionUtils;
-import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.view.OverlayView;
+import com.yalantis.ucrop1.ucrop.UCrop;
+import com.yalantis.ucrop1.ucrop.view.OverlayView;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
