@@ -172,7 +172,7 @@ public class UCropActivity extends AppCompatActivity {
         if (isImmersive()) {
             immersive();
         }
-        setContentView(R.layout.ucrop_activity_photobox);
+        setContentView(R.layout.ucrop_activity_photobox1);
         mScreenWidth = ScreenUtils.getScreenWidth(this);
         setupViews(intent);
         setNavBar();
@@ -444,7 +444,7 @@ public class UCropActivity extends AppCompatActivity {
             ViewGroup wrapper = viewGroup.findViewById(R.id.controls_wrapper);
             wrapper.setVisibility(View.VISIBLE);
             wrapper.setBackgroundColor(mRootViewBackgroundColor);
-            LayoutInflater.from(this).inflate(R.layout.ucrop_controls, wrapper, true);
+            LayoutInflater.from(this).inflate(R.layout.ucrop_controls1, wrapper, true);
 
             mControlsTransition = new AutoTransition();
             mControlsTransition.setDuration(CONTROLS_ANIMATION_DURATION);
@@ -604,7 +604,7 @@ public class UCropActivity extends AppCompatActivity {
             mCropAspectRatioViews = new ArrayList<>();
         }
         for (AspectRatio aspectRatio : aspectRatioList) {
-            wrapperAspectRatio = (FrameLayout) getLayoutInflater().inflate(R.layout.ucrop_aspect_ratio, null);
+            wrapperAspectRatio = (FrameLayout) getLayoutInflater().inflate(R.layout.ucrop_aspect_ratio1, null);
             wrapperAspectRatio.setLayoutParams(lp);
             aspectRatioTextView = ((com.yalantis.ucrop1.ucrop.view.widget.AspectRatioTextView) wrapperAspectRatio.getChildAt(0));
             aspectRatioTextView.setActiveColor(mActiveControlsWidgetColor);
