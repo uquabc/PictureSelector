@@ -13,7 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.luck.picture.lib.camera.CustomCameraView;
-import com.luck.picture.lib.camera.CheckPermission;
 import com.luck.picture.lib.camera.listener.CaptureListener;
 import com.luck.picture.lib.tools.DoubleUtils;
 
@@ -64,7 +63,6 @@ public class CaptureButton extends View {
 
     private RectF rectF;
 
-    private LongPressRunnable longPressRunnable;    //长按后处理的逻辑Runnable
     private CaptureListener captureLisenter;        //按钮回调接口
     private RecordCountDownTimer timer;             //计时器
     private boolean isTakeCamera = true;
@@ -89,7 +87,6 @@ public class CaptureButton extends View {
         mPaint.setAntiAlias(true);
 
         progress = 0;
-        longPressRunnable = new LongPressRunnable();
 
         state = STATE_IDLE;                //初始化为空闲状态
         button_state = CustomCameraView.BUTTON_STATE_BOTH;  //初始化按钮为可录制可拍照
@@ -145,9 +142,6 @@ public class CaptureButton extends View {
                     event_Y = event.getY();     //记录Y值
                     state = STATE_PRESS;        //修改当前状态为点击按下
 
-                    //判断按钮状态是否为可录制状态
-                    if ((button_state == CustomCameraView.BUTTON_STATE_ONLY_RECORDER || button_state == CustomCameraView.BUTTON_STATE_BOTH))
-                        postDelayed(longPressRunnable, 500);    //同时延长500启动长按后处理的逻辑Runnable
                     break;
                 case MotionEvent.ACTION_MOVE:
                     if (captureLisenter != null
@@ -169,7 +163,6 @@ public class CaptureButton extends View {
 
     //当手指松开按钮时候处理的逻辑
     private void handlerPressByState() {
-        removeCallbacks(longPressRunnable); //移除长按逻辑的Runnable
         //根据当前状态处理
         switch (state) {
             //当前是点击按下
@@ -314,29 +307,6 @@ public class CaptureButton extends View {
         public void onFinish() {
             //updateProgress(duration);
             recordEnd();
-        }
-    }
-
-    //长按线程
-    private class LongPressRunnable implements Runnable {
-        @Override
-        public void run() {
-            state = STATE_LONG_PRESS;   //如果按下后经过500毫秒则会修改当前状态为长按状态
-            //没有录制权限
-            if (CheckPermission.getRecordState() != CheckPermission.STATE_SUCCESS) {
-                state = STATE_IDLE;
-                if (captureLisenter != null) {
-                    captureLisenter.recordError();
-                    return;
-                }
-            }
-            //启动按钮动画，外圆变大，内圆缩小
-            startRecordAnimation(
-                    button_outside_radius,
-                    button_outside_radius + outside_add_size,
-                    button_inside_radius,
-                    button_inside_radius - inside_reduce_size
-            );
         }
     }
 
