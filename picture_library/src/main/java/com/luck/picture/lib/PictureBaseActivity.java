@@ -776,36 +776,36 @@ public abstract class PictureBaseActivity extends AppCompatActivity {
      * start to camera audio
      */
     public void startOpenCameraAudio() {
-        try {
-            if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
-                Intent cameraIntent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
-                    config.cameraMimeType = PictureMimeType.ofAudio();
-                    String audioFormat = TextUtils.isEmpty(config.cameraAudioFormat) ? config.suffixType : config.cameraAudioFormat;
-                    if (SdkVersionUtils.checkedAndroid_Q()) {
-                        Uri audioUri = MediaUtils.createAudioUri(this, audioFormat);
-                        if (audioUri == null) {
-                            ToastUtils.s(getContext(), "open is audio error，the uri is empty ");
-                            if (config.camera) {
-                                exit();
-                            }
-                            return;
-                        }
-                        config.cameraPath = audioUri.toString();
-                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, audioUri);
-                    }
-                    startActivityForResult(cameraIntent, PictureConfig.REQUEST_CAMERA);
-                } else {
-                    ToastUtils.s(getContext(), "System recording is not supported");
-                }
-            } else {
-                PermissionChecker.requestPermissions(this,
-                        new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_AUDIO_PERMISSIONS_CODE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            ToastUtils.s(getContext(), e.getMessage());
-        }
+//        try {
+//            if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
+//                Intent cameraIntent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+//                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+//                    config.cameraMimeType = PictureMimeType.ofAudio();
+//                    String audioFormat = TextUtils.isEmpty(config.cameraAudioFormat) ? config.suffixType : config.cameraAudioFormat;
+//                    if (SdkVersionUtils.checkedAndroid_Q()) {
+//                        Uri audioUri = MediaUtils.createAudioUri(this, audioFormat);
+//                        if (audioUri == null) {
+//                            ToastUtils.s(getContext(), "open is audio error，the uri is empty ");
+//                            if (config.camera) {
+//                                exit();
+//                            }
+//                            return;
+//                        }
+//                        config.cameraPath = audioUri.toString();
+//                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, audioUri);
+//                    }
+//                    startActivityForResult(cameraIntent, PictureConfig.REQUEST_CAMERA);
+//                } else {
+//                    ToastUtils.s(getContext(), "System recording is not supported");
+//                }
+//            } else {
+//                PermissionChecker.requestPermissions(this,
+//                        new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_AUDIO_PERMISSIONS_CODE);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            ToastUtils.s(getContext(), e.getMessage());
+//        }
 
     }
 

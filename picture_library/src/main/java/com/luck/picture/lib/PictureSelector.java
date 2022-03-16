@@ -65,7 +65,6 @@ public final class PictureSelector {
     /**
      * @param chooseMode Select the type of picture you want，all or Picture or Video .
      * @return LocalMedia PictureSelectionModel
-     * Use {@link PictureMimeType.ofAll(),ofImage(),ofVideo(),ofAudio()}.
      */
     public PictureSelectionModel openGallery(int chooseMode) {
         return new PictureSelectionModel(this, chooseMode);
@@ -74,7 +73,6 @@ public final class PictureSelector {
     /**
      * @param chooseMode Select the type of picture you want，Picture or Video.
      * @return LocalMedia PictureSelectionModel
-     * Use {@link PictureMimeType.ofImage(),ofVideo()}.
      */
     public PictureSelectionModel openCamera(int chooseMode) {
         return new PictureSelectionModel(this, chooseMode, true);
@@ -194,16 +192,16 @@ public final class PictureSelector {
      * @param path
      */
     public void externalPictureVideo(String path) {
-        if (!DoubleUtils.isFastDoubleClick()) {
-            if (getActivity() != null) {
-                Intent intent = new Intent(getActivity(), PictureVideoPlayActivity.class);
-                intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, path);
-                intent.putExtra(PictureConfig.EXTRA_PREVIEW_VIDEO, true);
-                getActivity().startActivity(intent);
-            } else {
-                throw new NullPointerException("Starting the PictureSelector Activity cannot be empty ");
-            }
-        }
+//        if (!DoubleUtils.isFastDoubleClick()) {
+//            if (getActivity() != null) {
+//                Intent intent = new Intent(getActivity(), PictureVideoPlayActivity.class);
+//                intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, path);
+//                intent.putExtra(PictureConfig.EXTRA_PREVIEW_VIDEO, true);
+//                getActivity().startActivity(intent);
+//            } else {
+//                throw new NullPointerException("Starting the PictureSelector Activity cannot be empty ");
+//            }
+//        }
     }
 
     /**
@@ -212,16 +210,16 @@ public final class PictureSelector {
      * @param path
      */
     public void externalPictureAudio(String path) {
-        if (!DoubleUtils.isFastDoubleClick()) {
-            if (getActivity() != null) {
-                Intent intent = new Intent(getActivity(), PicturePlayAudioActivity.class);
-                intent.putExtra(PictureConfig.EXTRA_AUDIO_PATH, path);
-                getActivity().startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.picture_anim_enter, 0);
-            } else {
-                throw new NullPointerException("Starting the PictureSelector Activity cannot be empty ");
-            }
-        }
+//        if (!DoubleUtils.isFastDoubleClick()) {
+//            if (getActivity() != null) {
+//                Intent intent = new Intent(getActivity(), PicturePlayAudioActivity.class);
+//                intent.putExtra(PictureConfig.EXTRA_AUDIO_PATH, path);
+//                getActivity().startActivity(intent);
+//                getActivity().overridePendingTransition(R.anim.picture_anim_enter, 0);
+//            } else {
+//                throw new NullPointerException("Starting the PictureSelector Activity cannot be empty ");
+//            }
+//        }
     }
 
     /**

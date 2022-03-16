@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.luck.picture.lib.PicturePreviewActivity;
 import com.luck.picture.lib.PictureSelectorPreviewWeChatStyleActivity;
-import com.luck.picture.lib.PictureVideoPlayActivity;
 
 /**
  * @author：luck
@@ -22,17 +21,17 @@ public class JumpUtils {
      * @param bundle
      */
     public static void startPictureVideoPlayActivity(Context context, Bundle bundle, int requestCode) {
-        if (!DoubleUtils.isFastDoubleClick()) {
-            Intent intent = new Intent();
-            intent.setClass(context, PictureVideoPlayActivity.class);
-            intent.putExtras(bundle);
-            if (!(context instanceof Activity)) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            } else {
-                ((Activity) context).startActivityForResult(intent, requestCode);
-            }
-        }
+//        if (!DoubleUtils.isFastDoubleClick()) {
+//            Intent intent = new Intent();
+//            intent.setClass(context, PictureVideoPlayActivity.class);
+//            intent.putExtras(bundle);
+//            if (!(context instanceof Activity)) {
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+//            } else {
+//                ((Activity) context).startActivityForResult(intent, requestCode);
+//            }
+//        }
     }
 
     /**

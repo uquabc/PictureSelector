@@ -13,7 +13,6 @@ public interface OnPermissionsObtainCallback {
      *
      * @param context
      * @param isCamera             is use camera
-     * @param permissions          Use {@link Manifest.permission.RECORD_AUDIO}
      * @param tips                 permissions show tips
      * @param dialogOptionCallback
      */

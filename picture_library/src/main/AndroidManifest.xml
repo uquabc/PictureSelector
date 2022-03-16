@@ -40,15 +40,7 @@
             android:name=".PictureSelectorPreviewWeChatStyleActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
-            android:name=".PictureVideoPlayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="sensor" />
-        <activity
             android:name=".PictureExternalPreviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
-
-        <activity
-            android:name=".PicturePlayAudioActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <activity

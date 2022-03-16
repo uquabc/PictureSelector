@@ -69,12 +69,12 @@ public class PictureCustomCameraActivity extends PictureSelectorCameraEmptyActiv
                 if (config.buttonFeatures == CustomCameraView.BUTTON_STATE_ONLY_CAPTURE) {
                     mCameraView.initCamera();
                 } else {
-                    if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
-                        mCameraView.initCamera();
-                    } else {
-                        PermissionChecker.requestPermissions(this,
-                                new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE);
-                    }
+//                    if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
+//                        mCameraView.initCamera();
+//                    } else {
+//                        PermissionChecker.requestPermissions(this,
+//                                new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE);
+//                    }
                 }
             } else {
                 PermissionChecker.requestPermissions(this,
@@ -97,12 +97,12 @@ public class PictureCustomCameraActivity extends PictureSelectorCameraEmptyActiv
                     if (config.buttonFeatures == CustomCameraView.BUTTON_STATE_ONLY_CAPTURE) {
                         mCameraView.initCamera();
                     } else {
-                        if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
-                            mCameraView.initCamera();
-                        } else {
-                            PermissionChecker.requestPermissions(this,
-                                    new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE);
-                        }
+//                        if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
+//                            mCameraView.initCamera();
+//                        } else {
+//                            PermissionChecker.requestPermissions(this,
+//                                    new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE);
+//                        }
                     }
                 } else {
                     showPermissionsDialog(false, new String[]{Manifest.permission.CAMERA}, getString(R.string.picture_camera));
@@ -217,21 +217,9 @@ public class PictureCustomCameraActivity extends PictureSelectorCameraEmptyActiv
             case PictureConfig.APPLY_CAMERA_PERMISSIONS_CODE:
                 // 相机权限
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)) {
                         mCameraView.initCamera();
-                    } else {
-                        PermissionChecker.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE);
-                    }
                 } else {
                     showPermissionsDialog(true, new String[]{Manifest.permission.CAMERA}, getString(R.string.picture_camera));
-                }
-                break;
-            case PictureConfig.APPLY_RECORD_AUDIO_PERMISSIONS_CODE:
-                // 录音权限
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mCameraView.initCamera();
-                } else {
-                    showPermissionsDialog(false, new String[]{Manifest.permission.RECORD_AUDIO}, getString(R.string.picture_audio));
                 }
                 break;
         }
